@@ -1,3 +1,10 @@
+"""
+This module cleans and preprocesses raw inflation data.
+It standardizes column names, converts the dataset from wide to long format,
+constructs a proper date column, removes missing values, and saves the cleaned
+inflation data to a CSV file for analysis.
+"""
+
 import pandas as pd
 
 # Read original Excel file

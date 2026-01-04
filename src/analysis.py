@@ -1,3 +1,9 @@
+"""
+This module performs statistical analysis and anomaly detection on cleaned inflation data.
+It computes basic statistics, quartiles, z-score based anomalies, and yearly inflation trends,
+and exports results as CSV files for further use and visualization.
+"""
+
 import pandas as pd
 import numpy as np
 from scipy import stats
@@ -50,8 +56,8 @@ if "CPI" not in df.columns:
 df["z_score"] = stats.zscore(df["CPI"])
 
 #Threshold for anomaly detection
-threshold = 3
-anomalies = df[np.abs(df["z_score"]) > threshold]
+THRESHOLD = 3
+anomalies = df[np.abs(df["z_score"]) > THRESHOLD]
 print("\n---  Anomaly Detection ---")
 print("Number of anomalies:", len(anomalies))
 print(anomalies[["Date", "CPI", "z_score"]])
